@@ -1,0 +1,72 @@
+.body{
+    background-color: lightgray;
+}
+/* 包裹菜单栏的div居中 */
+.nav{
+    margin: 0 auto;
+    width: 50%;
+}
+/* 描述a标签的css */
+.nav a{
+    display: block;
+    width: 120px;
+    color: black;
+    background-color: aquamarine;
+    text-align: center;
+    text-decoration: none;
+}
+/* 鼠标悬停a标签事改变背景色 */
+.nav a:hover{
+    background-color: gold;
+}
+/* 去除无序列表 无标记 取消默认的内边距  */
+.nav ul{
+    list-style: none;
+    padding: 0;
+}
+.drop-down > ul{
+    background-color: aquamarine;
+}
+/* 一级菜单设置浮动 使之在一行上面 */
+.drop-down > ul >li {
+    float: left;
+    /* 为了让二级菜单栏参照定位  */
+    position: relative;
+}
+/* 一级菜单栏悬停鼠标时显示二级菜单栏 */
+.drop-down > ul >li:hover > ul{
+    display: block;
+}
+/* 二级菜单栏绝对定位 脱离文档 默认不显示 */
+.drop-down > ul >li > ul {
+    position: absolute;
+    display: none;
+}
+/* 在二级菜单栏悬停鼠标时 显示相对于的三级菜单栏 */
+.drop-down > ul > li > ul > li:hover > ul{
+    display: block;
+}
+/* 二级菜单栏相对定位 为下面三级菜单栏绝对定位做准备 */
+.drop-down > ul > li > ul > li{
+    position: relative;
+}
+/* 三级菜单栏绝对定位 脱离文档流 并且位于二级菜单栏右边 默认不显示 */
+.drop-down > ul > li > ul > li > ul {
+    position: absolute;
+    left: 100%;
+    top:0;
+    display: none;
+}
+/* 清除浮动 兼容低版本IE */
+.clearfix{
+    *zoom: 1;
+}
+/* 清除一级菜单栏浮动的操作 */
+.clearfix ::after{
+    content: ".";
+    display: block;
+    clear: both;
+/* 兼容低版本Firefox*/
+    height: 0;
+    overflow: hidden;
+}
